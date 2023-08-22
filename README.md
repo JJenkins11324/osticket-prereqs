@@ -17,58 +17,87 @@ This tutorial outlines the prerequisites and installation of the open-source hel
 
 <h2>List of Prerequisites</h2>
 
-- Item 1
-- Item 2
-- Item 3
-- Item 4
-- Item 5
+- IIS and IIS Management Services
+- PHP Manager for IIS
+- Rewrite Module
+- PHP 7.3.8
+- C++ Redistributable
+- MySQL
+- HeidiSQL
+- osTicket
 
 <h2>Installation Steps</h2>
 
 <p>
-<img src="https://i.imgur.com/DJmEXEB.png" height="80%" width="80%" alt="Disk Sanitization Steps"/>
+<img src="https://imgur.com/JpfDHG0.png" height="80%" width="80%" alt="Disk Sanitization Steps"/>
 </p>
 <p>
-Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur.
-</p>
-<br />
-
-<p>
-<img src="https://i.imgur.com/DJmEXEB.png" height="80%" width="80%" alt="Disk Sanitization Steps"/>
-</p>
-<p>
-Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur.
+First, install and enable IIS in Windows. Open Control Panel -> Programs -> Turn Windows Features on or off -> Internet Information Services. From here, enable Web Management Tools. Next, in the IIS dropdown, click on World Wide Web Services -> Application Development Features and enable CGI. Navigate back to World Wide Web Services, and open the Common HTTP Features tab and ensure all of the boxes are checked
 </p>
 <br />
 
 <p>
-<img src="https://i.imgur.com/DJmEXEB.png" height="80%" width="80%" alt="Disk Sanitization Steps"/>
+<img src="https://imgur.com/Z7HMQ9F.png" height="80%" width="80%" alt="Disk Sanitization Steps"/>
 </p>
 <p>
-Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur.
-</p>
-<br />
-
-<p>
-<img src="https://i.imgur.com/DJmEXEB.png" height="80%" width="80%" alt="Disk Sanitization Steps"/>
-</p>
-<p>
-Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur.
+To verify that IIS was installed correctly, open any browser and search 127.0.0.1. The result should look like the photo above.
 </p>
 <br />
 
 <p>
-<img src="https://i.imgur.com/DJmEXEB.png" height="80%" width="80%" alt="Disk Sanitization Steps"/>
+<img src="https://imgur.com/axsIExC.png" height="80%" width="80%" alt="Disk Sanitization Steps"/>
 </p>
 <p>
-Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur.
+Next, download all prerequisite files and create the directiory C:\php to unzip the contents of PHP 7.3.8 into. You will use a typical setup and standard configuration when installing MySQL. Make sure to take note of the password that is used here.
 </p>
 <br />
 
 <p>
-<img src="https://i.imgur.com/DJmEXEB.png" height="80%" width="80%" alt="Disk Sanitization Steps"/>
+<img src="https://imgur.com/ZR9VA2t.png" height="80%" width="80%" alt="Disk Sanitization Steps"/>
 </p>
 <p>
-Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur.
+Now, open IIS as an administrator. Register PHP by clicking on PHP Manager -> Register new PHP Version. Provide a path to the .exe file by going to C: -> php -> php-cgi.exe. Once that is done, reload the server by either clicking reload or clicking stop and start.
+</p>
+<br />
+
+<p>
+<img src="https://imgur.com/gMXgWQ9.png" height="80%" width="80%" alt="Disk Sanitization Steps"/>
+</p>
+<p>
+Install osTicket and copy the "upload" folder to c:\inetpub\root. Rename this new folder to "osTicket". Reload IIS, and from IIS, go to sites -> Default -> osTicket. Select "Browse *:80" and note that some extensions on the osTicket installer are disabled. To enable these, go back to IIS -> sites -> Default -> osTicket and double-click PHP Manager. Select "Enable or disable an extension", and enable php_imap.dll, php_intl.dll, and php_opcache.dll. Refresh the osTicket site in the browser and notice the changes.
+</p>
+<br />
+
+<p>
+<img src="https://imgur.com/i7JENHW.png" height="80%" width="80%" alt="Disk Sanitization Steps"/>
+</p>
+<p>
+<img src="https://imgur.com/0EF8yWD.png" height="80%" width="80%" alt="Disk Sanitization Steps"/>
+</p>
+<p>
+Next, rename ost-sampleconfig.php to ost-config.php. To do this, open the C drive -> inetpub -> wwwroot -> osTicket -> include and rename the file. Change the file's permissions by right-clicking and selecting properties -> security -> advanced -> disable Inheritance -> Remove all. Then, add properties by clicking on add -> select principal and in the text box, type "Everyone" and click on search names. Give everyone Full Control, and select apply.
+</p>
+<br />
+
+<p>
+<img src="https://imgur.com/E2QhTfi.png" height="80%" width="80%" alt="Disk Sanitization Steps"/>
+</p>
+<p>
+Continue setting up osTicket by clicking continue and filling in the name and email of your helpdesk as well as account information. Stop at the third section, and open HeidiSQL. Create a new session using the credentials from MySQL and create a new database called "osTicket".
+</p>
+<br />
+
+<p>
+<img src="https://imgur.com/nPz5rfe.png" height="80%" width="80%" alt="Disk Sanitization Steps"/>
+</p>
+<p>
+Continue setting up osTicket in the browser by filling in the third row with the database, username, and password used and created in the last step.
+</p>
+<br />
+
+<p>
+<img src="https://imgur.com/pHQqknu.png" height="80%" width="80%" alt="Disk Sanitization Steps"/>
+</p>
+Assuming everything works, your screen should look like the photo above. Congratulations! You have successfully set up osTicket. To finish, change the permissions of C:\inetpub\wwwroot\osTicket\include\ost-config.php to "read only" and delete C:\inetpub\wwwroot\osTicket\setup.
 </p>
 <br />
