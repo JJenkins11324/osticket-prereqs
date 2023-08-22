@@ -101,3 +101,14 @@ Continue setting up osTicket in the browser by filling in the third row with the
 Assuming everything works, your screen should look like the photo above. Congratulations! You have successfully set up osTicket. To finish, change the permissions of C:\inetpub\wwwroot\osTicket\include\ost-config.php to "read only" and delete C:\inetpub\wwwroot\osTicket\setup.
 </p>
 <br />
+
+<h2>🤳Connect with me:</h2>
+
+[<img align="left" alt="Joseph | LinkedIn" width="22px" src="https://imgur.com/yJ22BHw.png" />][linkedin]
+[<img align="left" alt="Joseph | Instagram" width="22px" src="https://imgur.com/JnlEgDK.png" />][instagram]
+[<img align="left" alt="Joseph | Discord" width="22px" src="https://imgur.com/YGezWPR.png" />][discord]
+
+
+[instagram]: https://www.instagram.com/jenkins5937/
+[linkedin]: https://www.linkedin.com/in/joseph-jenkins-521a49241
+[discord]: https://www.discordapp.com/users/262825628695396352
